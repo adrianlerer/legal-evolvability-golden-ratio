@@ -401,7 +401,46 @@ COUNTRY_PARAMETERS = {
             compliance_rate=0.70, transparency_score=0.68,
             enforcement_capacity=0.62, legitimacy_index=0.60
         )
-    }
+    },
+    
+    # Goldilocks Zone countries (LEI > 1.0, d_φ < 0.5)
+    'France': {'H': 0.70, 'V': 0.65, 'alpha': 0.60},
+    'UK': {'H': 0.75, 'V': 0.68, 'alpha': 0.62},
+    'Japan': {'H': 0.68, 'V': 0.60, 'alpha': 0.58},
+    'Canada': {'H': 0.70, 'V': 0.66, 'alpha': 0.61},
+    'Australia': {'H': 0.73, 'V': 0.68, 'alpha': 0.60},
+    'South_Africa': {'H': 0.55, 'V': 0.70, 'alpha': 0.52},
+    'India': {'H': 0.62, 'V': 0.72, 'alpha': 0.54},
+    'Mexico': {'H': 0.58, 'V': 0.68, 'alpha': 0.48},
+    'Poland': {'H': 0.65, 'V': 0.62, 'alpha': 0.55},
+    'Indonesia': {'H': 0.50, 'V': 0.65, 'alpha': 0.48},
+    
+    # High Rigidity (H/V > φ + 1.0)
+    'Venezuela': {'H': 0.88, 'V': 0.25, 'alpha': 0.15},
+    'Egypt': {'H': 0.82, 'V': 0.32, 'alpha': 0.22},
+    'Turkey': {'H': 0.78, 'V': 0.35, 'alpha': 0.28},
+    'Russia': {'H': 0.80, 'V': 0.38, 'alpha': 0.30},
+    
+    # High Chaos (H/V < φ - 1.0)
+    'Somalia': {'H': 0.20, 'V': 0.75, 'alpha': 0.10},
+    'Libya': {'H': 0.25, 'V': 0.78, 'alpha': 0.12},
+    'Yemen': {'H': 0.22, 'V': 0.72, 'alpha': 0.11},
+    'Afghanistan': {'H': 0.18, 'V': 0.70, 'alpha': 0.09},
+    
+    # Viable but suboptimal
+    'Nigeria': {'H': 0.48, 'V': 0.62, 'alpha': 0.42},
+    'Kenya': {'H': 0.52, 'V': 0.58, 'alpha': 0.45},
+    'Colombia': {'H': 0.60, 'V': 0.55, 'alpha': 0.48},
+    'Peru': {'H': 0.58, 'V': 0.52, 'alpha': 0.46},
+    'Philippines': {'H': 0.54, 'V': 0.60, 'alpha': 0.44},
+    'Thailand': {'H': 0.62, 'V': 0.48, 'alpha': 0.42},
+    
+    # European cases
+    'Spain': {'H': 0.72, 'V': 0.62, 'alpha': 0.58},
+    'Italy': {'H': 0.68, 'V': 0.58, 'alpha': 0.54},
+    'Netherlands': {'H': 0.74, 'V': 0.70, 'alpha': 0.62},
+    'Sweden': {'H': 0.76, 'V': 0.72, 'alpha': 0.64},
+    'Norway': {'H': 0.75, 'V': 0.71, 'alpha': 0.63}
 }
 
 
