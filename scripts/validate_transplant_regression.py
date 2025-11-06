@@ -20,7 +20,8 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from scipy.stats import pearsonr, spearmanr
 from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import roc_auc_score, confusion_matrix, classification_report
+from sklearn.metrics import (roc_auc_score, confusion_matrix, classification_report, 
+                             roc_curve, auc)
 import sys
 import os
 
@@ -279,6 +280,66 @@ def validate_against_paper_values(results):
     return all_passed
 
 
+def generate_roc_curve(transplants_data, model, save_path=None):
+    """
+    Generate Figure 8.2: ROC Curve for transplant success prediction
+    """
+    X = transplants_data[['d_phi']].values
+    y = transplants_data['success'].values
+    
+    # Get predicted probabilities
+    y_pred_proba = model.predict_proba(X)[:, 1]
+    
+    # Calculate ROC curve
+    fpr, tpr, thresholds = roc_curve(y, y_pred_proba)
+    roc_auc = auc(fpr, tpr)
+    
+    # Create figure
+    fig, ax = plt.subplots(figsize=(8, 8))
+    
+    # Plot ROC curve
+    ax.plot(fpr, tpr, color='#2ecc71', linewidth=2.5, 
+            label=f'Model (AUC = {roc_auc:.3f})')
+    
+    # Plot random classifier line
+    ax.plot([0, 1], [0, 1], color='#95a5a6', linewidth=2, 
+            linestyle='--', label='Random Classifier (AUC = 0.500)')
+    
+    # Styling
+    ax.set_xlabel('False Positive Rate', fontsize=13, weight='bold')
+    ax.set_ylabel('True Positive Rate', fontsize=13, weight='bold')
+    ax.set_title('Figure 8.2: ROC Curve - Transplant Success Prediction\\n' + 
+                 'Logistic Regression: success ~ d_φ', 
+                 fontsize=14, weight='bold', pad=15)
+    
+    ax.legend(loc='lower right', fontsize=11, frameon=True, 
+              shadow=True, fancybox=True)
+    ax.grid(True, alpha=0.3, linestyle='--')
+    ax.set_xlim([-0.02, 1.02])
+    ax.set_ylim([-0.02, 1.02])
+    ax.set_aspect('equal')
+    
+    # Add diagonal reference shading
+    ax.fill_between([0, 1], [0, 1], [1, 1], alpha=0.1, color='green')
+    
+    # Add text box with statistics
+    textstr = f'n = {len(transplants_data)}\\n'
+    textstr += f'Accuracy = {((y == model.predict(X)).sum() / len(y)):.1%}\\n'
+    textstr += f'AUC = {roc_auc:.3f}'
+    
+    props = dict(boxstyle='round', facecolor='wheat', alpha=0.8)
+    ax.text(0.55, 0.15, textstr, transform=ax.transAxes, fontsize=11,
+            verticalalignment='top', bbox=props)
+    
+    plt.tight_layout()
+    
+    if save_path:
+        plt.savefig(save_path, dpi=300, bbox_inches='tight')
+        print(f"Saved Figure 8.2 to {save_path}")
+    
+    return fig
+
+
 def main():
     """Main execution"""
     print("\n" + "="*70)
@@ -319,8 +380,14 @@ def main():
     )
     print("  ✓ Figure 8.1 generated: figures/figure_8.1_transplant_success.pdf")
     
-    # Note: HTML export not needed for matplotlib figures
-    # Interactive Plotly version could be added in future with plot_darwinian_space_3D
+    # Generate Figure 8.2 (ROC Curve)
+    print("\nStep 5: Generating Figure 8.2 (ROC Curve)...")
+    fig_roc = generate_roc_curve(
+        transplants,
+        model,
+        save_path='/home/user/webapp/legal-evolvability-golden-ratio/figures/figure_8.2_roc_curve.pdf'
+    )
+    print("  ✓ Figure 8.2 generated: figures/figure_8.2_roc_curve.pdf")
     
     print("\n" + "="*70)
     print("ANALYSIS COMPLETE")
@@ -329,10 +396,11 @@ def main():
     print(f"  • Odds Ratio = {results['odds_ratio']:.3f} (target: 0.12)")
     print(f"  • Correlation r = {results['r_pearson']:.3f} (target: -0.78)")
     print(f"  • p-value = {results['p_pearson']:.4f} (target: < 0.01)")
+    print(f"  • AUC-ROC = {results['auc']:.3f}")
     print("\nOutputs:")
     print(f"  • Data: {output_path}")
-    print("  • Figure: figures/figure_8.1_transplant_success.pdf")
-    print("  • Figure: figures/figure_8.1_transplant_success.html")
+    print("  • Figure 8.1: figures/figure_8.1_transplant_success.pdf")
+    print("  • Figure 8.2: figures/figure_8.2_roc_curve.pdf")
     print("="*70 + "\n")
 
 
