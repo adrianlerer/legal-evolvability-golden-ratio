@@ -1,0 +1,61 @@
+Case_ID,Country,Year,Geographic_Region,Crisis_Catalyzed,H_post,V_post,d_phi,success
+CRISIS_001,United Kingdom,2016,Europe,1,0.3,0.15,2.01,0
+CRISIS_002,Hungary,2015,Europe,1,0.927,0.31,1.373,0
+CRISIS_003,Poland,2017,Europe,1,0.3,0.15,2.2,0
+CRISIS_004,Catalonia,2017,Europe,1,0.3,0.15,3.72,0
+CRISIS_005,Greece,2015,Europe,1,0.452,0.155,1.296,1
+CRISIS_006,Italy,2018,Europe,1,0.3,0.85,1.296,0
+CRISIS_007,Czech Republic,2015,Europe,1,0.3,0.15,3.848,0
+CRISIS_008,Slovakia,2015,Europe,1,0.3,0.15,2.364,0
+CRISIS_009,Denmark,2015,Europe,1,0.3,0.609,1.126,0
+CRISIS_010,Austria,2015,Europe,1,0.3,0.15,2.066,0
+CRISIS_011,Netherlands,2016,Europe,1,0.655,0.239,1.13,1
+CRISIS_012,France,2005,Europe,1,0.3,0.612,1.128,0
+CRISIS_013,Ireland,2008,Europe,1,0.3,0.15,1.725,0
+CRISIS_014,Romania,2012,Europe,1,0.95,0.454,0.473,1
+CRISIS_015,Slovenia,2015,Europe,1,0.944,0.439,0.53,1
+CRISIS_016,Belgium,2017,Europe,1,0.3,0.542,1.065,1
+CRISIS_017,Sweden,2015,Europe,1,0.588,0.73,0.812,1
+CRISIS_018,Germany,2015,Europe,1,0.3,0.15,1.801,0
+CRISIS_019,Finland,2015,Europe,1,0.95,0.383,0.865,1
+CRISIS_020,Lithuania,2015,Europe,1,0.719,0.734,0.639,1
+CRISIS_021,Argentina,2006,Latin America,1,0.3,0.15,3.594,0
+CRISIS_022,Bolivia,2006,Latin America,1,0.95,0.325,1.303,1
+CRISIS_023,Ecuador,2008,Latin America,1,0.545,0.172,1.554,0
+CRISIS_024,Venezuela,2007,Latin America,1,0.313,0.318,0.635,1
+CRISIS_025,Argentina,2012,Latin America,1,0.561,0.208,1.076,0
+CRISIS_026,Peru,2015,Latin America,1,0.3,0.85,1.594,0
+CRISIS_027,Chile,2010,Latin America,1,0.686,0.788,0.748,1
+CRISIS_028,Brazil,2013,Latin America,1,0.95,0.272,1.869,0
+CRISIS_029,Colombia,2010,Latin America,1,0.746,0.281,1.04,1
+CRISIS_030,Mexico,2013,Latin America,1,0.3,0.82,1.252,1
+CONTROL_001,Norway,2014,Europe,0,0.95,0.403,0.74,1
+CONTROL_002,Switzerland,2014,Europe,0,0.3,0.15,2.525,0
+CONTROL_003,Portugal,2013,Europe,0,0.772,0.296,0.993,1
+CONTROL_004,Spain,2014,Europe,0,0.95,0.43,0.589,1
+CONTROL_005,Estonia,2015,Europe,0,0.888,0.284,1.509,0
+CONTROL_006,Latvia,2014,Europe,0,0.813,0.756,0.543,1
+CONTROL_007,Croatia,2013,Europe,0,0.559,0.205,1.11,0
+CONTROL_008,Bulgaria,2015,Europe,0,0.95,0.477,0.375,1
+CONTROL_009,Malta,2014,Europe,0,0.796,0.722,0.515,1
+CONTROL_010,Cyprus,2013,Europe,0,0.363,0.705,1.103,1
+CONTROL_011,Luxembourg,2015,Europe,0,0.3,0.85,1.447,0
+CONTROL_012,Iceland,2015,Europe,0,0.95,0.351,1.089,1
+CONTROL_013,Liechtenstein,2014,Europe,0,0.657,0.257,0.944,1
+CONTROL_014,Monaco,2014,Europe,0,0.3,0.396,0.86,1
+CONTROL_015,Andorra,2015,Europe,0,0.64,0.561,0.477,1
+CONTROL_016,San Marino,2014,Europe,0,0.95,0.41,0.698,1
+CONTROL_017,Albania,2014,Europe,0,0.95,0.394,0.794,1
+CONTROL_018,Serbia,2014,Europe,0,0.3,0.15,1.696,0
+CONTROL_019,Montenegro,2015,Europe,0,0.3,0.697,1.187,1
+CONTROL_020,Macedonia,2014,Europe,0,0.308,0.255,0.414,1
+CONTROL_021,Uruguay,2010,Latin America,0,0.3,0.679,1.176,0
+CONTROL_022,Costa Rica,2014,Latin America,0,0.3,0.378,0.825,1
+CONTROL_023,Panama,2015,Latin America,0,0.95,0.408,0.713,1
+CONTROL_024,Paraguay,2013,Latin America,0,0.3,0.85,1.358,0
+CONTROL_025,Guatemala,2014,Latin America,0,0.3,0.15,1.674,0
+CONTROL_026,Honduras,2014,Latin America,0,0.751,0.234,1.593,0
+CONTROL_027,El Salvador,2015,Latin America,0,0.31,0.323,0.657,1
+CONTROL_028,Nicaragua,2014,Latin America,0,0.6,0.788,0.857,1
+CONTROL_029,Dominican Republic,2014,Latin America,0,0.3,0.685,1.18,1
+CONTROL_030,Jamaica,2015,Latin America,0,0.3,0.15,1.629,0
