@@ -490,16 +490,25 @@ def plot_chi_map(
         except ImportError:
             raise ImportError("geopandas required for static map. Install with: pip install geopandas")
         
-        # Load world map
-        world = gpd.read_file(gpd.datasets.get_path('naturalearth_lowres'))
+        # Load world map from Natural Earth
+        try:
+            world = gpd.read_file(
+                'https://naciscdn.org/naturalearth/110m/cultural/ne_110m_admin_0_countries.zip'
+            )
+        except Exception as e:
+            raise RuntimeError(f"Could not load world map data: {e}")
         
         # Merge with CHI data
-        world = world.merge(countries_chi, left_on='name', right_on='country', how='left')
+        world = world.merge(countries_chi, left_on='NAME', right_on='country', how='left')
         
         # Plot
         fig, ax = plt.subplots(figsize=(18, 10))
         world.plot(column='CHI', ax=ax, legend=True, cmap='RdYlGn',
-                  missing_kwds={'color': 'lightgrey'})
+                  missing_kwds={'color': 'lightgrey'},
+                  vmin=0, vmax=1,
+                  legend_kwds={'label': 'Constitutional Health Index (CHI)',
+                              'orientation': 'horizontal',
+                              'pad': 0.05})
         
         ax.set_title('Figure 9.1: Constitutional Health Index (CHI) - Global Map',
                     fontsize=16, fontweight='bold', pad=20)
