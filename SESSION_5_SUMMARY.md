@@ -529,7 +529,7 @@ All verification checks passed!
 ## 📧 Contact
 
 **Paper Author**: Ignacio Adrian Lerer  
-**Email**: adrianlerer@gmail.com  
+**Email**: adrian@lerer.com.ar  
 **Repository**: https://github.com/adrianlerer/legal-evolvability-golden-ratio  
 **Session Date**: November 6, 2024
 
